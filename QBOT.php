@@ -3,7 +3,7 @@
 set_time_limit(0);
  
 $server = "34.64.89.62";
-$conport = 8080;
+$conport = 8000;
 $username = "root";
 $password = "root";
  
